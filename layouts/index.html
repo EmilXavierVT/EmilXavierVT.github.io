@@ -30,7 +30,7 @@
       <p class="hero-copy">I build Java systems, containerize them with Docker, automate the repetitive parts in Bash and follow the network until I understand where the request stopped.</p>
       <div class="hero-actions">
         <a class="command-link" href="#systems"><span>01</span> Inspect systems</a>
-        <a class="command-link" href="#signal-run"><span>02</span> Run field test</a>
+        <a class="command-link" href="#signal-run"><span>02</span> Run the shift</a>
       </div>
     </div>
 
@@ -151,28 +151,67 @@
     </div>
   </section>
 
-  <section class="signal-game" id="signal-run" aria-labelledby="game-title">
+  <section class="shift-game" id="signal-run" aria-labelledby="game-title">
     <div class="game-copy">
-      <p class="section-kicker">03 / Campfire relay</p>
-      <h2 id="game-title">Keep the field system alive.</h2>
-      <p>Hit the live node before its signal drops. Twenty seconds. Four layers. No framework between you and the outage.</p>
-      <button class="game-start" type="button" data-game-start>Start field test</button>
-      <p class="game-message" data-game-message aria-live="polite">System idle. Awaiting operator.</p>
+      <p class="section-kicker">03 / The service loop</p>
+      <h2 id="game-title">Run the shift. Build the system.</h2>
+      <p>A booking enters the room and becomes groceries, prep, service, an invoice and a clean close. Every repeated task is a candidate for automation.</p>
+      <button class="game-start" type="button" data-game-start>Open for service</button>
+      <p class="game-message" data-game-message aria-live="polite">The room is quiet. The operator is ready.</p>
     </div>
 
-    <div class="game-console" data-game>
+    <div class="game-console" data-game data-shift-duration="90">
       <div class="game-stats" aria-label="Game status">
-        <div><span>Time</span><strong data-game-time>20.0</strong></div>
-        <div><span>Uptime</span><strong data-game-score>--</strong></div>
-        <div><span>Drops</span><strong data-game-misses>0</strong></div>
+        <div><span>Shift</span><strong data-game-time>90</strong></div>
+        <div><span>Bookings</span><strong data-game-bookings>0</strong></div>
+        <div><span>Invoices</span><strong data-game-invoices>0</strong></div>
+        <div><span>RAM</span><strong data-game-ram>0</strong></div>
       </div>
-      <div class="relay-line" aria-hidden="true"><span></span><span></span><span></span></div>
-      <div class="game-nodes">
-        <button type="button" data-node="0" aria-label="API node, key 1"><span>1</span><strong>API</strong><small>request</small></button>
-        <button type="button" data-node="1" aria-label="Container node, key 2"><span>2</span><strong>Docker</strong><small>runtime</small></button>
-        <button type="button" data-node="2" aria-label="Network node, key 3"><span>3</span><strong>Network</strong><small>transport</small></button>
-        <button class="fire-node" type="button" data-node="3" aria-label="Fire node, key 4"><span>4</span><strong>Fire</strong><small>output</small><i aria-hidden="true"></i></button>
+
+      <div class="shift-layout">
+        <div class="shift-world" data-game-world role="application" aria-label="Morgendagens service shift">
+          <div class="world-map-shade" aria-hidden="true"></div>
+
+          <button class="work-station station-booking" type="button" data-station="booking" data-key="1">
+            <span class="station-art sprite-booking" aria-hidden="true"></span><span class="station-mode" aria-hidden="true"><i></i></span>
+          </button>
+          <button class="work-station station-groceries" type="button" data-station="groceries" data-key="2">
+            <span class="station-art sprite-groceries" aria-hidden="true"></span><span class="station-mode" aria-hidden="true"><i></i></span>
+          </button>
+          <button class="work-station station-kitchen" type="button" data-station="kitchen" data-key="3">
+            <span class="station-art sprite-kitchen" aria-hidden="true"></span><span class="station-mode" aria-hidden="true"><i></i></span>
+          </button>
+          <button class="work-station station-customer" type="button" data-station="customer" data-key="4">
+            <span class="station-art sprite-customer" aria-hidden="true"></span><span class="station-mode" aria-hidden="true"><i></i></span>
+          </button>
+          <button class="work-station station-invoice" type="button" data-station="invoice" data-key="5">
+            <span class="station-art sprite-invoice" aria-hidden="true"></span><span class="station-mode" aria-hidden="true"><i></i></span>
+          </button>
+          <button class="work-station station-staff" type="button" data-station="staff" data-key="6">
+            <span class="station-art sprite-staff" aria-hidden="true"></span><span class="station-mode" aria-hidden="true"><i></i></span>
+          </button>
+          <button class="work-station station-cleaning" type="button" data-station="cleaning" data-key="7">
+            <span class="station-art sprite-cleaning" aria-hidden="true"></span><span class="station-mode" aria-hidden="true"><i></i></span>
+          </button>
+
+          <div class="ops-node" data-ops-node aria-label="Operations computer">
+            <span class="ops-sprite" aria-hidden="true"></span>
+            <span>OPS NODE</span><strong data-ops-state>MANUAL</strong><i aria-hidden="true"></i>
+          </div>
+          <div class="shift-chef" data-game-chef role="img" aria-label="The chef operator"></div>
+          <div class="automation-packet" data-automation-packet aria-hidden="true"></div>
+        </div>
+
+        <aside class="automation-rack" aria-label="Automation rack">
+          <div class="automation-heading"><span>AUTOMATION</span><strong>RAM BUS</strong></div>
+          <button type="button" data-automation="booking" data-threshold="2" disabled><i aria-hidden="true"></i><span>Booking sync</span><small>2 RAM</small></button>
+          <button type="button" data-automation="groceries" data-threshold="4" disabled><i aria-hidden="true"></i><span>Purchase list</span><small>4 RAM</small></button>
+          <button type="button" data-automation="invoice" data-threshold="6" disabled><i aria-hidden="true"></i><span>Invoice runner</span><small>6 RAM</small></button>
+          <button type="button" data-automation="staff" data-threshold="8" disabled><i aria-hidden="true"></i><span>Roster builder</span><small>8 RAM</small></button>
+          <button type="button" data-automation="cleaning" data-threshold="10" disabled><i aria-hidden="true"></i><span>Closing list</span><small>10 RAM</small></button>
+        </aside>
       </div>
+
       <div class="game-meter" aria-hidden="true"><span data-game-meter></span></div>
     </div>
   </section>
@@ -250,7 +289,7 @@
   </section>
 </main>
 
-<button class="guide-launch" type="button" data-guide-open aria-expanded="false" aria-controls="field-guide">
+<button class="guide-launch" type="button" data-guide-open aria-label="Ask AIDA, the portfolio field guide" aria-expanded="false" aria-controls="field-guide">
   <span class="guide-launch-mark" aria-hidden="true">AI</span>
   <span><strong>Ask the field guide</strong><small data-guide-launch-state>AIDA / SETUP</small></span>
 </button>
