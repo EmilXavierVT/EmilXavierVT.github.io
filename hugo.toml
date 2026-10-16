@@ -1,4 +1,4 @@
-baseURL = 'https://emilxaviervt.github.io/AIDAportfolio/'
+baseURL = 'https://emilxaviervt.github.io/'
 locale = 'en-us'
 title = 'Emil Xavier Verdet Thorsen'
 disableKinds = ['taxonomy', 'term']
