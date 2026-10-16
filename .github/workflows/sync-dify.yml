@@ -1,0 +1,38 @@
+name: Sync portfolio knowledge to Dify
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "static/knowledge/**"
+      - "scripts/sync_dify.py"
+      - ".github/workflows/sync-dify.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dify-portfolio-knowledge
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: ${{ vars.DIFY_DATASET_ID != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate knowledge source discovery
+        run: python scripts/sync_dify.py --dry-run
+      - name: Sync knowledge base
+        env:
+          DIFY_BASE_URL: ${{ vars.DIFY_BASE_URL }}
+          DIFY_DATASET_ID: ${{ vars.DIFY_DATASET_ID }}
+          DIFY_DATASET_API_KEY: ${{ secrets.DIFY_DATASET_API_KEY }}
+        run: python scripts/sync_dify.py

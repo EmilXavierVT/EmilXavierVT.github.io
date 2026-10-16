@@ -1,0 +1,310 @@
+{{ define "main" }}
+<header class="site-header" id="top">
+  <a class="brand" href="#top" aria-label="Emil Xavier Verdet Thorsen home">
+    <span class="brand-code">EX/01</span>
+    <span class="brand-name">Field system</span>
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="#story">Story</a>
+    <a href="#systems">Systems</a>
+    <a href="#signal-run">Play</a>
+    <a href="#journey">Log</a>
+    <a href="#links">Links</a>
+  </nav>
+  <div class="header-state" aria-label="Current status">
+    <span class="status-light" aria-hidden="true"></span>
+    Available for the next hard problem
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <img class="hero-image" src="/images/outdoor-fire-hero.webp" alt="A campfire beside hiking gear on a rocky Nordic coast at dusk.">
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-coordinate">55.6761 N / 12.5683 E / Copenhagen</p>
+      <h1 id="hero-title"><span>Emil Xavier</span> Verdet Thorsen</h1>
+      <p class="hero-role">Backend developer with an operator's instinct.</p>
+      <p class="hero-copy">I build Java systems, containerize them with Docker, automate the repetitive parts in Bash and follow the network until I understand where the request stopped.</p>
+      <div class="hero-actions">
+        <a class="command-link" href="#systems"><span>01</span> Inspect systems</a>
+        <a class="command-link" href="#signal-run"><span>02</span> Run field test</a>
+      </div>
+    </div>
+
+    <dl class="hero-readout">
+      <div><dt>Local time</dt><dd data-clock>--:--:--</dd></div>
+      <div><dt>Current operation</dt><dd>Morgendagens Måltid</dd></div>
+      <div><dt>Education</dt><dd>Computer Science AP / 4th semester</dd></div>
+      <div><dt>Home stack</dt><dd>Java / Docker / Bash / Networks</dd></div>
+    </dl>
+  </section>
+
+  <div class="signal-tape" aria-hidden="true">
+    <div>
+      <span>BACKEND</span><i>+</i><span>CONTAINERS</span><i>+</i><span>NETWORKING</span><i>+</i><span>FIELD WORK</span><i>+</i><span>BACKEND</span><i>+</i><span>CONTAINERS</span><i>+</i><span>NETWORKING</span><i>+</i><span>FIELD WORK</span>
+    </div>
+  </div>
+
+  <section class="field-section story" id="story" aria-labelledby="story-title">
+    <div class="section-index">
+      <span>01</span>
+      <p>Origin</p>
+    </div>
+    <div class="section-body">
+      <div class="section-heading">
+        <p class="section-kicker">Operator turned developer</p>
+        <h2 id="story-title">The software started with friction in the real world.</h2>
+      </div>
+      <div class="story-grid">
+        <div class="story-copy">
+          <p class="story-lede">I currently lead <a href="https://morgendagensmaaltid.dk/" target="_blank" rel="noopener">Morgendagens Måltid</a> with Thomas Helwigh while building my path as a software developer.</p>
+          <p>We run a Copenhagen catering and cleaning business shaped by seasonal food, practical hospitality and the belief that service should still feel human. Our work includes the kitchen and events around Ungdomsøen, where fire, local ingredients and experimentation are part of the job.</p>
+          <p>That work is full of hidden systems: reservation numbers buried in forms, changing guest counts, allergens, schedules, permissions and information that has to reach the right person. About eighteen months ago I started turning those problems into code.</p>
+        </div>
+        <div class="story-ledger" aria-label="The connection between operations and software">
+          <div><span>Input</span><strong>Bookings, people, timing, pressure</strong></div>
+          <div><span>Translation</span><strong>Rules, states, roles, failure modes</strong></div>
+          <div><span>Output</span><strong>APIs, databases, containers, automation</strong></div>
+          <div><span>Preference</span><strong>The part that has to keep running</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="systems" id="systems" aria-labelledby="systems-title">
+    <div class="systems-heading">
+      <div>
+        <p class="section-kicker">02 / Selected systems</p>
+        <h2 id="systems-title">Case files, not showcase pieces.</h2>
+      </div>
+      <p>Every system here began with a constraint, an awkward handoff or a job someone was still doing by hand.</p>
+    </div>
+
+    <div class="project-console">
+      <div class="project-tabs" role="tablist" aria-label="Selected projects">
+        <button role="tab" id="tab-supavisor" aria-controls="panel-supavisor" aria-selected="true" data-project="supavisor"><span>01</span>Supavisor<small>Workforce platform</small></button>
+        <button role="tab" id="tab-morgendagens" aria-controls="panel-morgendagens" aria-selected="false" data-project="morgendagens" tabindex="-1"><span>02</span>Morgendagens Måltid<small>Venture + platform</small></button>
+        <button role="tab" id="tab-sync" aria-controls="panel-sync" aria-selected="false" data-project="sync" tabindex="-1"><span>03</span>Booking sync<small>Operational automation</small></button>
+        <button role="tab" id="tab-rundtur" aria-controls="panel-rundtur" aria-selected="false" data-project="rundtur" tabindex="-1"><span>04</span>Ungdomsøen Rundtur<small>Live group experience</small></button>
+        <button role="tab" id="tab-playground" aria-controls="panel-playground" aria-selected="false" data-project="playground" tabindex="-1"><span>05</span>Find en Legeplads<small>Layered backend</small></button>
+      </div>
+
+      <div class="project-panels">
+        <article class="project-panel" id="panel-supavisor" role="tabpanel" aria-labelledby="tab-supavisor" data-panel="supavisor">
+          <div class="panel-topline"><span>Current build</span><span>Java / PostgreSQL / React 19</span></div>
+          <h3>Supavisor</h3>
+          <p class="panel-lede">A backend-first workforce platform where schedules, assignments, attendance and permissions behave like business rules, not demo data.</p>
+          <div class="panel-columns">
+            <p>I work across dynamic role permissions, protected operations, employee assignment views, calendars, overlap detection, attendance corrections and audit-friendly history. The backend has passed a 115-test run alongside the production front end.</p>
+            <ul><li>Runtime authorization</li><li>Explicit conflict handling</li><li>JWT and role-based access</li><li>Issue-driven delivery</li></ul>
+          </div>
+          <div class="panel-footer"><code>JAVA / DOCKER / BASH / POSTGRESQL / JUNIT</code><span><a href="https://github.com/EmilXavierVT/Supavisor" target="_blank" rel="noopener">Backend</a><a href="https://github.com/EmilXavierVT/SupavisorFront" target="_blank" rel="noopener">Frontend</a></span></div>
+        </article>
+
+        <article class="project-panel" id="panel-morgendagens" role="tabpanel" aria-labelledby="tab-morgendagens" data-panel="morgendagens" hidden>
+          <div class="panel-topline"><span>Current venture</span><span>Operations / Java / Javalin</span></div>
+          <h3>Morgendagens Måltid</h3>
+          <p class="panel-lede">The place where my working life and software practice become the same project.</p>
+          <div class="panel-columns">
+            <p>I lead Morgendagens Måltid with Thomas: a Copenhagen catering and cleaning business where operational problems become the product brief. Alongside the company, I am building a multi-tenant request platform for customers, products, time slots, locations, allergens, messages and weather data.</p>
+            <ul><li>Multi-tenant boundaries</li><li>Real customer workflows</li><li>JWT and tenant isolation</li><li>Testcontainers infrastructure</li></ul>
+          </div>
+          <div class="panel-footer"><code>JAVA 17 / HIBERNATE / POSTGRESQL / DOCKER</code><span><a href="https://morgendagensmaaltid.dk/" target="_blank" rel="noopener">Business</a><a href="https://github.com/EmilXavierVT/Morgendagens" target="_blank" rel="noopener">Repository</a></span></div>
+        </article>
+
+        <article class="project-panel" id="panel-sync" role="tabpanel" aria-labelledby="tab-sync" data-panel="sync" hidden>
+          <div class="panel-topline"><span>Private prototype</span><span>Mail / Calendar / Documents</span></div>
+          <h3>Booking sync</h3>
+          <p class="panel-lede">An automation for the kind of admin task that quietly consumes an afternoon.</p>
+          <div class="panel-columns">
+            <p>Select a booking email, read its PDF or DOCX attachment, extract the Spectra reservation number, date and guest count, then create or update the correct calendar event. The second run is the important one: it updates instead of duplicating.</p>
+            <ul><li>Real document parsing</li><li>Idempotent calendar writes</li><li>Regression fixtures</li><li>Dry-run verification</li></ul>
+          </div>
+          <div class="panel-footer"><code>BASH / MACOS AUTOMATION / PARSING</code><span>Operational tool</span></div>
+        </article>
+
+        <article class="project-panel" id="panel-rundtur" role="tabpanel" aria-labelledby="tab-rundtur" data-panel="rundtur" hidden>
+          <div class="panel-topline"><span>Experience design</span><span>Hugo / Supabase</span></div>
+          <h3>Ungdomsøen Rundtur</h3>
+          <p class="panel-lede">A mobile-first shared layer for a guided tour through an old sea fort.</p>
+          <div class="panel-columns">
+            <p>Guests join with a shared code, answer anonymously from their own phones and watch the group's responses appear live. It makes the physical tour participatory without turning the guide into technical support.</p>
+            <ul><li>Realtime responses</li><li>Anonymous participation</li><li>Mobile-first interface</li><li>Static deployment</li></ul>
+          </div>
+          <div class="panel-footer"><code>HUGO / SUPABASE REALTIME / GITHUB PAGES</code><span><a href="https://emilxaviervt.github.io/rundvisning/" target="_blank" rel="noopener">Live page</a><a href="https://github.com/EmilXavierVT/rundvisning" target="_blank" rel="noopener">Source</a></span></div>
+        </article>
+
+        <article class="project-panel" id="panel-playground" role="tabpanel" aria-labelledby="tab-playground" data-panel="playground" hidden>
+          <div class="panel-topline"><span>Team backend</span><span>Java / JPA / Docker</span></div>
+          <h3>Find en Legeplads</h3>
+          <p class="panel-lede">A layered backend for playground discovery and child check-in, built as a complete deployed system.</p>
+          <div class="panel-columns">
+            <p>This project made configuration feel like code. Environment names, volumes, container networks and Caddy proxy rules could break an otherwise correct application, so the whole path had to be understood.</p>
+            <ul><li>JWT authentication</li><li>Role-based access</li><li>Docker Compose</li><li>Caddy reverse proxy</li></ul>
+          </div>
+          <div class="panel-footer"><code>JAVA / JPA / POSTGRESQL / CADDY</code><span><a href="https://github.com/EmilXavierVT/FindEnLegeplads" target="_blank" rel="noopener">Repository</a></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="signal-game" id="signal-run" aria-labelledby="game-title">
+    <div class="game-copy">
+      <p class="section-kicker">03 / Campfire relay</p>
+      <h2 id="game-title">Keep the field system alive.</h2>
+      <p>Hit the live node before its signal drops. Twenty seconds. Four layers. No framework between you and the outage.</p>
+      <button class="game-start" type="button" data-game-start>Start field test</button>
+      <p class="game-message" data-game-message aria-live="polite">System idle. Awaiting operator.</p>
+    </div>
+
+    <div class="game-console" data-game>
+      <div class="game-stats" aria-label="Game status">
+        <div><span>Time</span><strong data-game-time>20.0</strong></div>
+        <div><span>Uptime</span><strong data-game-score>--</strong></div>
+        <div><span>Drops</span><strong data-game-misses>0</strong></div>
+      </div>
+      <div class="relay-line" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="game-nodes">
+        <button type="button" data-node="0" aria-label="API node, key 1"><span>1</span><strong>API</strong><small>request</small></button>
+        <button type="button" data-node="1" aria-label="Container node, key 2"><span>2</span><strong>Docker</strong><small>runtime</small></button>
+        <button type="button" data-node="2" aria-label="Network node, key 3"><span>3</span><strong>Network</strong><small>transport</small></button>
+        <button class="fire-node" type="button" data-node="3" aria-label="Fire node, key 4"><span>4</span><strong>Fire</strong><small>output</small><i aria-hidden="true"></i></button>
+      </div>
+      <div class="game-meter" aria-hidden="true"><span data-game-meter></span></div>
+    </div>
+  </section>
+
+  <section class="field-section stack" aria-labelledby="stack-title">
+    <div class="section-index">
+      <span>04</span>
+      <p>Manifest</p>
+    </div>
+    <div class="section-body">
+      <div class="section-heading compact">
+        <p class="section-kicker">Home territory</p>
+        <h2 id="stack-title">I like the layer where code becomes a running system.</h2>
+      </div>
+      <div class="manifest">
+        <div><span>Backend</span><strong>Java 17, Javalin, JPA/Hibernate, Maven, REST, domain models</strong><em>01</em></div>
+        <div><span>Containers</span><strong>Docker, Compose, health checks, environments, reproducible setups</strong><em>02</em></div>
+        <div><span>Networking</span><strong>HTTP, DNS, ports, bridge networks, Caddy, request tracing</strong><em>03</em></div>
+        <div><span>Shell</span><strong>Bash automation, process inspection, repeatable operational work</strong><em>04</em></div>
+        <div><span>Data + quality</span><strong>PostgreSQL, JWT, RBAC, JUnit, Testcontainers, REST Assured</strong><em>05</em></div>
+        <div><span>Interfaces</span><strong>React 19, Vite, Hugo, Supabase and document integrations</strong><em>06</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="field-section journey" id="journey" aria-labelledby="journey-title">
+    <div class="section-index">
+      <span>05</span>
+      <p>Trail log</p>
+    </div>
+    <div class="section-body">
+      <div class="section-heading compact">
+        <p class="section-kicker">Eighteen months in</p>
+        <h2 id="journey-title">A short path with a steep elevation profile.</h2>
+      </div>
+      <div class="trail-log">
+        <article><time>2024.10</time><div><h3>Repository trail opens</h3><p>I create my GitHub account. Processing assignments are the first public markers.</p></div></article>
+        <article><time>2025</time><div><h3>Syntax becomes structure</h3><p>Java, TDD, domain projects and larger semester work turn repetition into architecture.</p></div></article>
+        <article><time>2026.01</time><div><h3>Operations become product</h3><p>Morgendagens Måltid gives the code a live business context and real users.</p></div></article>
+        <article><time>NOW</time><div><h3>Systems over assignments</h3><p>Security, containers, networking, multi-tenancy, React and automation converge in running software.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="learning-band" aria-labelledby="learning-title">
+    <div>
+      <p class="section-kicker">Learning loop</p>
+      <h2 id="learning-title">Follow the abstraction until it becomes understandable.</h2>
+    </div>
+    <div class="learning-lines">
+      <p><span>Agents + protocols</span>MCP, tool-using agents, API boundaries and secret handling.</p>
+      <p><span>Self-hosted systems</span>Linux, containerized AI services and the machinery around the model.</p>
+      <p><span>Proof</span>Notes, prototypes and technical reflection collected in AIDAdoc.</p>
+      <div class="learning-actions">
+        <a class="command-link light" href="https://emilxaviervt.github.io/AIDAdoc/" target="_blank" rel="noopener"><span>LIVE</span>AIDAdoc field notes</a>
+        <a class="command-link light" href="https://github.com/EmilXavierVT/AIDAdoc" target="_blank" rel="noopener"><span>SRC</span>GitHub repository</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="links" id="links" aria-labelledby="links-title">
+    <div class="links-heading">
+      <p class="section-kicker">06 / Public trail</p>
+      <h2 id="links-title">Find the work. Find the person.</h2>
+    </div>
+    <div class="link-index">
+      <a href="https://github.com/EmilXavierVT" target="_blank" rel="me noopener"><span>01</span><strong>GitHub</strong><small>38 public repositories</small></a>
+      <a href="https://www.linkedin.com/in/emil-thorsen-bb3433261/" target="_blank" rel="me noopener"><span>02</span><strong>LinkedIn</strong><small>Professional profile</small></a>
+      <a href="https://www.instagram.com/emilxavier/" target="_blank" rel="me noopener"><span>03</span><strong>Instagram</strong><small>@emilxavier</small></a>
+      <a href="https://morgendagensmaaltid.dk/" target="_blank" rel="noopener"><span>04</span><strong>Morgendagens Måltid</strong><small>The venture I lead with Thomas</small></a>
+      <a href="https://emilxaviervt.github.io/AIDAdoc/" target="_blank" rel="noopener"><span>05</span><strong>AIDAdoc</strong><small>Live 4th-semester field notes</small></a>
+      <a href="https://emilxaviervt.github.io/portfolio/" target="_blank" rel="noopener"><span>06</span><strong>Earlier portfolio</strong><small>Live GitHub Pages chapter</small></a>
+      <a href="mailto:emilxavierthorsen@gmail.com"><span>07</span><strong>Email</strong><small>emilxavierthorsen@gmail.com</small></a>
+    </div>
+  </section>
+</main>
+
+<button class="guide-launch" type="button" data-guide-open aria-expanded="false" aria-controls="field-guide">
+  <span class="guide-launch-mark" aria-hidden="true">AI</span>
+  <span><strong>Ask the field guide</strong><small data-guide-launch-state>AIDA / SETUP</small></span>
+</button>
+
+<div class="guide-scrim" data-guide-scrim hidden></div>
+
+<aside class="guide-panel" id="field-guide" data-guide-panel data-proxy-url="{{ site.Params.ragProxyUrl | default "" }}" aria-hidden="true" aria-labelledby="guide-title">
+  <header class="guide-header">
+    <div>
+      <p>Portfolio intelligence</p>
+      <h2 id="guide-title">Field Guide</h2>
+    </div>
+    <div class="guide-header-actions">
+      <span class="guide-status" data-guide-status><i aria-hidden="true"></i>AIDA / SETUP</span>
+      <button type="button" data-guide-reset title="Start a new conversation">Reset</button>
+      <button type="button" data-guide-close aria-label="Close field guide">Close</button>
+    </div>
+  </header>
+
+  <div class="guide-local" data-guide-local>
+    <div class="guide-transcript" data-guide-messages aria-live="polite" aria-label="Conversation with Emil's portfolio guide">
+      <article class="guide-message is-assistant">
+        <span>FIELD GUIDE / 00</span>
+        <p>{{ if site.Params.ragProxyUrl }}I know the systems, tools and real-world problems behind this portfolio. Ask me where Emil is strongest, how a project works or what shaped his route into software.{{ else }}AIDA is not connected through Cloudflare yet. Open AIDA directly below while the secure connection is completed.{{ end }}</p>
+      </article>
+    </div>
+
+    <div class="guide-suggestions" aria-label="Suggested questions">
+      <p>Suggested queries</p>
+      <button type="button" data-guide-question="What does Emil build?">What does Emil build?<span aria-hidden="true">↗</span></button>
+      <button type="button" data-guide-question="Which project best shows his backend skills?">Which project best shows his backend skills?<span aria-hidden="true">↗</span></button>
+      <button type="button" data-guide-question="How does real-world operations shape his software?">How does real-world operations shape his software?<span aria-hidden="true">↗</span></button>
+      <button type="button" data-guide-question="How can I contact Emil?">How can I contact Emil?<span aria-hidden="true">↗</span></button>
+    </div>
+
+    <form class="guide-form" data-guide-form>
+      <label for="guide-input">Ask about Emil's work</label>
+      <div>
+        <input id="guide-input" data-guide-input type="text" autocomplete="off" maxlength="2000" placeholder="Trace a project, tool or idea..." required>
+        <button type="submit">Send</button>
+      </div>
+      <p class="guide-privacy" data-guide-privacy hidden>Questions pass through a protected Cloudflare endpoint to AIDA on Dify. Please avoid personal or sensitive information.</p>
+      {{ with site.Params.difyShareUrl }}
+      <a class="guide-direct" href="{{ . }}" target="_blank" rel="noopener">Open AIDA directly <span aria-hidden="true">↗</span></a>
+      {{ end }}
+    </form>
+  </div>
+</aside>
+
+<script type="application/json" id="portfolio-source-map">{"portfolio__knowledge__emil-portfolio-knowledge.md":{"label":"Portfolio knowledge base","url":"/knowledge/emil-portfolio-knowledge.md"}}</script>
+
+<footer class="site-footer">
+  <span>EX/01</span>
+  <p>Built with Hugo, JavaScript and a preference for systems that explain themselves.</p>
+  <a href="#top">Return to base</a>
+</footer>
+{{ end }}

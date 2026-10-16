@@ -1,0 +1,9 @@
+.hugo_build.lock
+public/
+resources/_gen/
+node_modules/
+__pycache__/
+*.py[cod]
+.DS_Store
+cloudflare-worker/.dev.vars
+cloudflare-worker/.wrangler/

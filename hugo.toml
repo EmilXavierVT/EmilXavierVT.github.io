@@ -1,0 +1,10 @@
+baseURL = 'https://emilxaviervt.github.io/AIDAportfolio/'
+locale = 'en-us'
+title = 'Emil Xavier Verdet Thorsen'
+disableKinds = ['taxonomy', 'term']
+
+[params]
+  description = 'Emil Xavier Verdet Thorsen is a backend-focused Computer Science AP student building Java, PostgreSQL and Docker systems with Bash automation and practical networking.'
+  author = 'Emil Xavier Verdet Thorsen'
+  ragProxyUrl = 'https://emil-portfolio-rag-proxy.emilxavierthorsen.workers.dev'
+  difyShareUrl = 'https://udify.app/chat/0VFSQcouOi4BwHQZ'
